@@ -2,6 +2,9 @@ import React from "react";
 import Delivery from "../img/delivery.png";
 import HeroBg from "../img/heroBg.png";
 import { heroDatas } from "../utils/data";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variant";
+import { TypeAnimation } from "react-type-animation";
 
 const HomeContainer = () => {
   return (
@@ -22,24 +25,71 @@ const HomeContainer = () => {
             />
           </div>
         </div>
-        <p className="md:text-[3.5rem] text-[2.5rem] font-bold tracking-wide text-headingColor">
-          The fastest Delivery in{" "}
-          <span className="text-orange-600 md:text-[4rem] text-[3rem]">
+        <motion.p
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="md:text-[2.5rem] text-[2rem] text-headingColor"
+        >
+          MAK the fastest Delivery{" "}
+          {/* <span className="text-orange-600 md:text-[4rem] text-[3rem]">
             {" "}
+            text-orange-600 md:text-[4rem] text-[3rem]
+            md:text-[3.5rem] text-[2.5rem] font-bold tracking-wide 
             Your City
-          </span>
-        </p>
-        <p className="text-base text-textColor text-center md:text-left ">
+          </span> */}
+        </motion.p>
+        <motion.div
+          variants={fadeIn("up", 0.5)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+        >
+          <p className="md:text-[3.5rem] text-[2.5rem]  tracking-wide">
+            <span className="text-orange-600 font-bold">Get Your Food</span>
+            <br />
+            <TypeAnimation
+              sequence={[
+                "In Your City !",
+                2000,
+                "In Less than 1 hour !",
+                2000,
+                "In Lowest Budget !",
+                2000,
+              ]}
+              speed={50}
+              className="font-medium bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.purple.400),theme(colors.purple.100),theme(colors.pink.300),theme(colors.orange.400),theme(colors.pink.300),theme(colors.purple.100),theme(colors.purple.400))] bg-[length:200%_auto] animate-gradient font-medium"
+              wrapper="span"
+              repeat={Infinity}
+            />
+          </p>
+        </motion.div>
+
+        <motion.p
+          variants={fadeIn("up", 0.7)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="text-base text-textColor text-center md:text-left "
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
           deserunt minima esse delectus natus voluptatibus nulla sunt pariatur
           vero temporibus?
-        </p>
-        <button
-          type="button"
-          className="bg-gradient-to-br from-orange-400 to-orange-600 w-full px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100 md:w-auto"
+        </motion.p>
+        <motion.div
+          variants={fadeIn("up", 0.6)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
         >
-          Order Now
-        </button>
+          <button
+            type="button"
+            className="bg-gradient-to-br from-orange-400 to-orange-600 w-full px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100 md:w-auto"
+          >
+            Order Now
+          </button>
+        </motion.div>
       </div>
       <div className="py-2 flex-1 flex items-center relative">
         <img
@@ -50,15 +100,27 @@ const HomeContainer = () => {
         <div className="w-full h-full absolute grid grid-cols-2 gap-14 top-0 left-0 px-6 lg:px-32 py-16 ">
           {heroDatas &&
             heroDatas.map((heroData) => (
-              <div
+              <motion.div
+                variants={fadeIn("up", 0.5)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.7 }}
                 key={heroData.id}
                 className="lg:w-190 h-fit min-w-[190px] p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg "
               >
-                <img
-                  src={heroData.imgSrc}
-                  className="w-20 lg:w-40 -mt-10 lg:-mt-24"
-                  alt=""
-                />
+                <motion.div
+                  variants={fadeIn("up", 0.4)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.7 }}
+                >
+                  <img
+                    src={heroData.imgSrc}
+                    className="w-20 lg:w-40 -mt-10 lg:-mt-24"
+                    alt=""
+                  />
+                </motion.div>
+
                 <p className="text-sm lg:text-base font-semibold text-textColor">
                   {heroData.name}
                 </p>
@@ -69,7 +131,7 @@ const HomeContainer = () => {
                   <span className="text-xs text-red-500">$</span>
                   {heroData.price}
                 </p>
-              </div>
+              </motion.div>
             ))}
         </div>
       </div>

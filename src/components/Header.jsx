@@ -149,16 +149,16 @@ const Header = () => {
                 </Link>
               )}
               <ul className="flex flex-col">
-                <li className="p-2 text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                <li className="p-2 text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"  onClick={ () => setMenu(false)}>
                   Menu
                 </li>
-                <li className="p-2 text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                <li className="p-2 text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={ () => setMenu(false)}>
                   About Us
                 </li>
-                <li className="p-2  text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                <li className="p-2  text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={ () => setMenu(false)}>
                   Service
                 </li>
-                <li className="p-2 text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                <li className="p-2 text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" onClick={ () => setMenu(false)}>
                   Home
                 </li>
               </ul>
