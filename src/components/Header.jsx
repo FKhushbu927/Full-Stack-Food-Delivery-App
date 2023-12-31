@@ -32,18 +32,20 @@ const Header = () => {
       setMenu(!isMenu);
     }
   };
-  const logout = () =>{
-    setMenu(false)
-    localStorage.clear()
+  const logout = () => {
+    setMenu(false);
+    localStorage.clear();
 
     dispatch({
-      type : actionType.SET_USER,
-      user : null
+      type: actionType.SET_USER,
+      user: null,
     });
-
-  }
+  };
   return (
-    <header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16">
+    <header
+      className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary shadow-lg
+    "
+    >
       {/* desktop and tab device */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to={"/"} className="flex items-center gap-2">
@@ -98,9 +100,11 @@ const Header = () => {
                     </p>
                   </Link>
                 )}
-                <p className=" py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base"  onClick = {logout}>
+                <p
+                  className=" py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base"
+                  onClick={logout}
+                >
                   log out <BsBoxArrowInRight />
-                
                 </p>
               </motion.div>
             )}
@@ -110,22 +114,19 @@ const Header = () => {
 
       {/* mobile device */}
       <div className="flex items-center justify-between  md:hidden w-full h-full">
-      <Link to={"/"} className="flex items-center gap-2">
+        <Link to={"/"} className="flex items-center gap-2">
           <img src={Logo} className="w-8 object-cover" alt="" />
           <p className="text-red-900 text-2xl font-bold">MAK</p>
         </Link>
-      
-      
-      
 
         <div className="relative flex items-center justify-center">
-            <MdLocalGroceryStore className="text-textColor text-3xl cursor-pointer" />
-            <div className="absolute -top-1 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center">
-              <p className="text-sm text-white font-semibold">2</p>
-            </div>
+          <MdLocalGroceryStore className="text-textColor text-3xl cursor-pointer" />
+          <div className="absolute -top-1 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center">
+            <p className="text-sm text-white font-semibold">2</p>
           </div>
+        </div>
 
-          <div className="relative">
+        <div className="relative">
           <motion.img
             whileTap={{ scale: 0.6 }}
             src={user ? user.photoURL : Profile}
@@ -147,9 +148,7 @@ const Header = () => {
                   </p>
                 </Link>
               )}
-              <ul
-                className="flex flex-col"
-              >
+              <ul className="flex flex-col">
                 <li className="p-2 text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
                   Menu
                 </li>
@@ -163,14 +162,15 @@ const Header = () => {
                   Home
                 </li>
               </ul>
-              <p className="m-2 p-2 rounded-md shadow-lg flex items-center justify-center gap-3 cursor-pointer bg-gray-200 hover:bg-blue-200 transition-all duration-100 ease-in-out text-textColor text-base"   onClick = {logout}>
+              <p
+                className="m-2 p-2 rounded-md shadow-lg flex items-center justify-center gap-3 cursor-pointer bg-gray-200 hover:bg-blue-200 transition-all duration-100 ease-in-out text-textColor text-base"
+                onClick={logout}
+              >
                 log out <BsBoxArrowInRight />
-              
               </p>
             </motion.div>
           )}
         </div>
-
       </div>
     </header>
   );
