@@ -9,11 +9,17 @@ import { TypeAnimation } from "react-type-animation";
 const HomeContainer = () => {
   return (
     <section
-      className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full "
+      className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full"
       id="home"
     >
       <div className="py-2 flex flex-1 flex-col  items-start  justify-center gap-6">
-        <div className="flex items-center justify-center gap-2 p-2 bg-orange-100 rounded-md border-[2px]">
+        <motion.div
+          variants={fadeIn("right", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex items-center justify-center gap-2 p-3 bg-orange-100 rounded-md border-[2px]"
+        >
           <p className="text-base text-orange-500 font-semibold">
             Bike Delivery
           </p>
@@ -24,7 +30,7 @@ const HomeContainer = () => {
               alt=""
             />
           </div>
-        </div>
+        </motion.div>
         <motion.p
           variants={fadeIn("up", 0.3)}
           initial="hidden"
@@ -33,12 +39,6 @@ const HomeContainer = () => {
           className="md:text-[2.5rem] text-[2rem] text-headingColor"
         >
           MAK the fastest Delivery{" "}
-          {/* <span className="text-orange-600 md:text-[4rem] text-[3rem]">
-            {" "}
-            text-orange-600 md:text-[4rem] text-[3rem]
-            md:text-[3.5rem] text-[2.5rem] font-bold tracking-wide 
-            Your City
-          </span> */}
         </motion.p>
         <motion.div
           variants={fadeIn("up", 0.5)}
@@ -85,7 +85,7 @@ const HomeContainer = () => {
         >
           <button
             type="button"
-            className="bg-gradient-to-br from-orange-400 to-orange-600 w-full px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100 md:w-auto"
+            className="bg-gradient-to-br from-orange-400 to-orange-600 w-full px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100 md:w-auto text-white"
           >
             Order Now
           </button>
@@ -121,12 +121,24 @@ const HomeContainer = () => {
                   />
                 </motion.div>
 
-                <p className="text-sm lg:text-base font-semibold text-textColor">
+                <motion.p
+                  variants={fadeIn("left", 0.2)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="text-sm lg:text-base font-semibold text-textColor"
+                >
                   {heroData.name}
-                </p>
-                <p className="text-xs lg:text-sm text-lighttextGray font-semibold my-2">
+                </motion.p>
+                <motion.p
+                  variants={fadeIn("left", 0.2)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="text-xs lg:text-sm text-lighttextGray font-semibold my-2"
+                >
                   {heroData.decp}
-                </p>
+                </motion.p>
                 <p className="text-xs lg:text-sm font-semibold text-headingColor">
                   <span className="text-xs text-red-500">$</span>
                   {heroData.price}
