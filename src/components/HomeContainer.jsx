@@ -8,10 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const HomeContainer = () => {
   return (
-    <section
-      className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full"
-      id="home"
-    >
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
       <div className="py-2 flex flex-1 flex-col  items-start  justify-center gap-6">
         <motion.div
           variants={fadeIn("right", 0.3)}
